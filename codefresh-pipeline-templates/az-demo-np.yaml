@@ -1,0 +1,37 @@
+version: "1.0"
+# Stages  can help you organize your steps in stages
+stages:
+  - "prepare"
+  - "apply"
+steps:
+  main_clone:
+    title: Cloning repository
+    type: git-clone
+    repo: "${{CF_REPO_OWNER}}/${{CF_REPO_NAME}}"
+    revision: "${{CF_BRANCH}}"
+    stage: prepare
+  init:
+    image: hashicorp/terraform:1.0.0
+    title: Initializing Terraform
+    stage: apply
+    working_directory: ${{main_clone}}/terraform-codefresh-project
+    commands:
+      - terraform init
+  plan:
+    image: hashicorp/terraform:1.0.0
+    title: Outputting Terraform plan
+    stage: apply
+    working_directory: ${{main_clone}}/terraform-codefresh-project
+    commands:
+      - terraform plan
+  apply:
+    image: hashicorp/terraform:1.0.0
+    title: Applying Terraform
+    stage: apply
+    working_directory: ${{main_clone}}/terraform-codefresh-project
+    commands:
+      - terraform apply -auto-approve
+    when:
+      branch:
+        only:
+        - main
