@@ -23,7 +23,7 @@ steps:
     stage: apply
     working_directory: ${{main_clone}}/terraform-codefresh-project
     commands:
-      - terraform plan
+      - terraform plan -var="codefresh_token=${{CF_TOKEN}}"
   apply:
     image: hashicorp/terraform:1.0.0
     title: Applying Terraform
