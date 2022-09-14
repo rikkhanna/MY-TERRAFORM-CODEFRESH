@@ -13,7 +13,7 @@ resource "codefresh_pipeline" "azure-nonprod" {
 
         spec_template {
         repo        = join("/", [each.value.org, each.value.repo])
-        path        = "codefresh-pipeline-templates/az-demo-np.yaml" # PATH_TO_CODEFRESH.YML
+        path        = "./codefresh.yml" # PATH_TO_CODEFRESH.YML
         revision    = each.value.revision # revision    = "master"
         context     = "github" #Codefresh Git context. 
         }

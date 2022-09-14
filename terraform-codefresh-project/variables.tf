@@ -1,6 +1,8 @@
 variable "codefresh_token" {}
 
-variable "codefresh_uri" {}
+variable "codefresh_uri" {
+  default = "https://g.codefresh.io/"
+}
 
 variable "codefresh_context" {
   default = "github"
