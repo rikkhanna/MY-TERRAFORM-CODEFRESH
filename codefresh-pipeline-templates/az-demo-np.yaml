@@ -16,14 +16,14 @@ steps:
     stage: apply
     working_directory: ${{main_clone}}/terraform-codefresh-project
     commands:
-      - terraform init 
+      - terraform init -var="codefresh_token=${{CF_TOKEN}}"
   plan:
     image: hashicorp/terraform:1.0.0
     title: Outputting Terraform plan
     stage: apply
     working_directory: ${{main_clone}}/terraform-codefresh-project
     commands:
-      - terraform plan -var="codefresh_token=${{CF_TOKEN}}"
+      - terraform plan
   apply:
     image: hashicorp/terraform:1.0.0
     title: Applying Terraform
