@@ -9,6 +9,6 @@ variable "codefresh_context" {
 }
 
 variable "pipeline_is_public" {
-  description   =   "Boolean that specifes if the build logs are publicly accessible. Default is kept true such that all engineers can access for logs"
-  default = true
+  description = "Boolean that specifes if the build logs are publicly accessible. Default is kept true such that all engineers can access for logs"
+  default     = true
 }

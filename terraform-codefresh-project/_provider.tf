@@ -8,6 +8,6 @@ terraform {
 }
 
 provider "codefresh" {
-  api_url   =  var.codefresh_uri
-  token = var.codefresh_token
+  api_url = var.codefresh_uri
+  token   = var.codefresh_token
 }
