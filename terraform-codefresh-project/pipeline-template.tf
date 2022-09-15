@@ -1,10 +1,10 @@
 resource "codefresh_pipeline" "azure-nonprod" {
-    depends_on = [codefresh_proejct.this]
+    depends_on = [codefresh_project.this]
 
     for_each = { for pipeline in local.pipelines : "${pipeline.name}" => pipeline if(pipeline.env != "prod" && pipeline.platform == "azure" && pipeline.repo != "")}
 
     name = join("-", [join("/", [each.value.project, each.value.name]), "nonprod"])
-    tags = concat(["nonprod"], [each.value.team], join("-", [each.value.team, "non-prod"]))
+    tags = concat(["nonprod"], [each.value.team], [join("-", [each.value.team, "non-prod"])])
     is_public = var.pipeline_is_public
 
     spec {

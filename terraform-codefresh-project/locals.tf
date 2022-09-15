@@ -20,7 +20,7 @@ locals {
             repo    =   pipeline.repo
             revision    =   try(pipeline.revision, "main")
             prod_revision   =   try(pipeline.prod_revision_override, "master")
-            teams   =   key
+            team   =   key
             project =   key
             env     =   pipeline.env
             platform    =   pipeline.platform
