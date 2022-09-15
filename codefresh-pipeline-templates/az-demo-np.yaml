@@ -30,7 +30,7 @@ steps:
     stage: apply
     working_directory: ${{main_clone}}/terraform-codefresh-project
     commands:
-      - terraform apply -auto-approve
+      - terraform apply  -var="codefresh_token=${{CF_TOKEN}}" -auto-approve
     when:
       branch:
         only:
