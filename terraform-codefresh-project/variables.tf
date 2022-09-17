@@ -1,7 +1,7 @@
 variable "codefresh_token" {}
 
 variable "codefresh_uri" {
-  default = "https://g.codefresh.io/api/"
+  default = "https://g.codefresh.io/api"
 }
 
 variable "codefresh_context" {
