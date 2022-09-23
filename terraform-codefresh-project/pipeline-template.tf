@@ -42,29 +42,12 @@ resource "codefresh_pipeline" "azure-nonprod" {
     #   cpu   =   "1000m"
     # }
 
-    variables = [
-        {
-          key = APPLICATION
-          value = each.value.app_dir
-          encrypted = false
-        },
-                {
-          key = CHANNEL
-          value = each.value.channel
-          encrypted = false
-        },
-        {
-          key = ENVIRONMENT
-          value = each.value.env
-          encrypted = false
-        },
-        {
-          key = PLATFORM
-          value = each.value.platform
-          encrypted = false
-        }
-    ]
-
+    variables = {
+      APPLICATION = each.value.app_dir
+      CHANNEL     = each.value.channel
+      PLATFORM    = each.value.platform
+      ENVIRONMENT = each.value.env
+    }
 
   }
 }
