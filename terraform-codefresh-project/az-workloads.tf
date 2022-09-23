@@ -6,7 +6,7 @@ locals {
           name : "04-Terraform-Language-Syntax",
           repo : "terraform-on-azure-cloud",
           revision : "main",
-          env : "",
+          env : "nonprod",
           platform : "azure",
           app_dir : "04-Terraform-Language-Syntax",
           channel : "./",
