@@ -46,6 +46,7 @@ resource "codefresh_pipeline" "azure-nonprod" {
       APPLICATION = each.value.app_dir
       CHANNEL     = each.value.channel
       PLATFORM    = each.value.platform
+      ENVIRONMENT = each.value.env
     }
   }
 }
