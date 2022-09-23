@@ -1,5 +1,5 @@
 locals {
-  teams = merge(local.az-workloads) # Multiple entries are allowed
+  teams = merge(local.az-workloads) #  Multiple entries are allowed
 
   #   user_ids = tomap({
   #     for u in data.codefresh_current_account.acc.users :
