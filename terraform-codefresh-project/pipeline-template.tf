@@ -24,7 +24,7 @@ resource "codefresh_pipeline" "azure-nonprod" {
     # ] # A list of strings representing the contexts (shared_configuration) to be configured for the pipeline
 
     trigger {
-      branch_regex        = "/^(feature\\/.+|develop|release\\/.+|hotfix\\/.+|dev\\/.+|bugfix\\/.+|drh\\/.+)$/gi"
+      branch_regex        = "/^(feature\\/.+|develop|main|release\\/.+|hotfix\\/.+|dev\\/.+|bugfix\\/.+|drh\\/.+)$/gi"
       context             = "github"
       description         = "Trigger for codefresh pipelines"
       disabled            = false
